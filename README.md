@@ -6,14 +6,31 @@
 
 - key steps
 
-  - 1. declarations in angular
+  - Angular Module Upgrade
 
-    - Begin by adding the component declarations to the module definition; this is used to link the two frameworks
+    - By Inject UpgradeModule
 
-  - 2. DI UpgradeModule
+  - Angular Component In Module declarations / entryComponents
 
-  - 3. Angular 1.x module definition
+  - Create a AngularJS Module
 
-  - 4. Angular 1.x directive definition/register
+  - Create a AngularJS Directive Using The Angular Component
 
-  - 5. Angular 2 component in entryComponents
+  - Using the Angular Component as Angular JS directive in HTML
+
+  - CONNECTING ANGULAR 1 TO ANGULAR 2
+
+    - Don't use an ng-app to bootstrap the Angular 1 application
+
+    ```javascript
+    //[main.ts]
+    import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+    import { Ng1AppModule } from "./app/ng1.module";
+    import { Ng2AppModule } from "./app/ng2.module";
+
+    platformBrowserDynamic()
+      .bootstrapModule(Ng2AppModule)
+      .then(ref => {
+        ref.instance.upgrade.bootstrap(document.body, [Ng1AppModule.name]);
+      });
+    ```
