@@ -12,6 +12,8 @@
 
   - Angular Component In Module declarations / entryComponents
 
+  - import UpgradeModule
+
   - Create a AngularJS Module
 
   - Create a AngularJS Directive Using The Angular Component
